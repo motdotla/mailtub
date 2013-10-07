@@ -1,6 +1,6 @@
 class RawEmail < ActiveRecord::Base
   validates :redis_key, presence: true, uniqueness: true
-  validates :source, presence: true
+  validates :source,    presence: true
 
   before_save :set_microtime
 

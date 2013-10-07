@@ -31,6 +31,16 @@ class Application < Sinatra::Base
   end
 
   not_found do
-    haml :'404'
+    @message = "API endpoint not found."
+    jsonify :"error"
+  end
+
+  get "/sync.json" do
+    jsonify :"sync"
+  end
+
+  get "/raw_emails/index.json" do
+    @raw_emails = RawEmail.all
+    jsonify :"/raw_emails/index"
   end
 end

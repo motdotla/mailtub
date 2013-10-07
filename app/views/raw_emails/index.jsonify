@@ -1,0 +1,5 @@
+json.success true
+json.raw_emails(@raw_emails) do |raw_email|
+  json.id         raw_email.id
+  json.source     raw_email.source
+end

@@ -1,5 +1,6 @@
 RACK_ENV                  = ENV['RACK_ENV']
 DATABASE_URL              = ENV['DATABASE_URL']
+REDIS_URL                 = ENV['REDIS_URL']
 
 case RACK_ENV
 when "production"
