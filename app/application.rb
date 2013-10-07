@@ -36,6 +36,7 @@ class Application < Sinatra::Base
   end
 
   get "/sync.json" do
+    RawEmail.sync!
     jsonify :"sync"
   end
 
