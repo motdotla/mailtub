@@ -25,5 +25,6 @@ describe RawEmail do
     before { raw_email.save! }
 
     it { raw_email.created_at.should_not be_blank }
+    it { raw_email.microtime.should_not be_blank }
   end
 end

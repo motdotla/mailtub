@@ -3,7 +3,7 @@ class CreateRawEmails < ActiveRecord::Migration
     create_table :raw_emails do |t|
       t.string  :redis_key
       t.text    :source
-      t.integer :microtime
+      t.integer :microtime, :limit => 8
       t.timestamps
     end
   end
