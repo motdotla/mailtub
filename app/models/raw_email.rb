@@ -4,12 +4,15 @@ class RawEmail < ActiveRecord::Base
 
   before_save :set_microtime
 
-  def self.sync! do
-    redis = Redis.new(:host => REDIS_HOST)
-    keys  = redis.keys
-    keys.each do |key|
-      source = redis.get key
-      self.create(redis_key: key, source: source)
+  def self.redis_keys
+    REDIS.keys
+  end
+
+  def self.sync!
+    redis_keys.each do |key|
+      source  = REDIS.get key
+      success = self.create(redis_key: key, source: source)
+      REDIS.del key if success
     end
   end
 

@@ -10,6 +10,7 @@ Dotenv.load ".env.#{Sinatra::Base.environment.to_s}", '.env'
 
 require './config/constants'
 require './config/post_body_content_type_parser'
+require './config/redis'
 
 Dir["./lib/**/*.rb"].each { |f| require f }
 
