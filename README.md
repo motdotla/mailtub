@@ -205,5 +205,7 @@ git clone https://github.com/scottmotte/mailtub.git
 cd mailtub
 heroku create
 git push heroku master
+heroku run rake db:migrate
+heroku config:set REDIS_URL=redis://ipaddress_of_above_mail_server:6379
 ```
 
