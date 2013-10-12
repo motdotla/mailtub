@@ -35,6 +35,10 @@ class Application < Sinatra::Base
     jsonify :"error"
   end
 
+  get "/" do
+    jsonify :"index"
+  end
+
   get "/sync.json" do
     RawEmail.sync!
     jsonify :"sync"
