@@ -40,7 +40,7 @@ service ssh restart
 Add a user.
 
 ```bash
-adduser signatureio
+adduser yourusername
 ```
 
 Give the user privileges. 
@@ -53,7 +53,7 @@ Add the following.
 
 ```
 root    ALL=(ALL:ALL) ALL
-signatureio ALL=(ALL:ALL) ALL
+yourusername ALL=(ALL:ALL) ALL
 ```
 
 Next to be extra safe let's change the ssh rules.
@@ -68,7 +68,7 @@ Set or add the following settings in that sshd_config file.
 ...
 Port 25999
 PermitRootLogin no
-AllowUsers signatureio
+AllowUsers yourusername
 ...
 ```
 
@@ -78,10 +78,10 @@ Restart ssh.
 service ssh restart
 ```
 
-Ok, logout and login as the signatureio user.
+Ok, logout and login as the yourusername user.
 
 ```bash
-ssh signatureio@IPADDRESS
+ssh yourusername@IPADDRESS
 ```
 
 Install oh-my-zsh
