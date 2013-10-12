@@ -4,6 +4,8 @@ Access your email via a RESTful web API.
 
 ## Installation
 
+### Setup haraka server to receive mail
+
 Begn by create a droplet on [digital ocean](https://www.digitalocean.com/droplets/new). Name it `mail` and make it 512 RAM. I choose San Francisco because that is nearest me. Make it Ubuntu 12.04 x64.
 
 Cool, now ssh in.
@@ -193,3 +195,15 @@ sudo haraka -c /etc/haraka
 All done, now you have a mail server accepting mail and dumping it into a redis database.
 
 Exit your server and let it run.
+
+### Deploy mailtub to heroku
+
+Before you do the following, you will need [an account on heroku](http://heroku.com) and have already [installed the heroku toolbelt](https://toolbelt.heroku.com/).
+
+```bash
+git clone https://github.com/scottmotte/mailtub.git
+cd mailtub
+heroku create
+git push heroku master
+```
+
