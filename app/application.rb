@@ -2,8 +2,6 @@ require 'open-uri'
 class Application < Sinatra::Base
   disable :protection # disabling rack/protection which is by default enabled with Sinatra
 
-  use Rack::WWWAndSSL if RACK_ENV == "production"
-
   use Rack::Cors do |config|
     config.allow do |allow|
       allow.origins '*'
