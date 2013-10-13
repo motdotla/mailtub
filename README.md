@@ -208,6 +208,20 @@ git push heroku master
 heroku run rake db:migrate
 heroku config:set REDIS_URL=redis://ipaddress_of_above_mail_server:6379
 heroku addons:add scheduler:standard
-
 ```
 
+In the scheduler add the following to run every 10 minutes.
+
+```bash
+bundle exec rake sync
+```
+
+## API
+
+### GET /
+
+### GET /sync.json
+
+### GET /raw_emails/index.json
+
+### GET /emails/index.json
