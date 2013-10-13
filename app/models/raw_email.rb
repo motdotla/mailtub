@@ -12,8 +12,12 @@ class RawEmail < ActiveRecord::Base
   def self.sync!
     redis_keys[0..1000].each do |key|
       source  = REDIS.get key
-      success = self.create(redis_key: key, source: source.encode('UTF-8'))
-      REDIS.del key if success
+      begin
+        success = self.create(redis_key: key, source: source)
+        REDIS.del key if success
+      rescue => e
+        puts "probably invalid byte sequence"
+      end
     end
   end
 
