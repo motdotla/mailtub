@@ -36,5 +36,6 @@ describe RawEmail do
 
     it { raw_email.created_at.should_not be_blank }
     it { raw_email.microtime.should_not be_blank }
+    it { raw_email.mail.to.should_not be_blank }
   end
 end

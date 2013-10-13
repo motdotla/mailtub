@@ -6,6 +6,7 @@ gem 'dotenv'
 gem 'foreman'
 gem 'json', '~> 1.7.7'
 gem 'jsonify', '0.4.0',         require: %w(jsonify jsonify/tilt)
+gem 'mail'
 gem 'pg'
 gem 'pry'
 gem 'racksh'

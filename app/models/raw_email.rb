@@ -1,4 +1,3 @@
-# encoding: utf-8
 class RawEmail < ActiveRecord::Base
   validates :redis_key, presence: true, uniqueness: true
   validates :source,    presence: true
@@ -10,15 +9,19 @@ class RawEmail < ActiveRecord::Base
   end
 
   def self.sync!
-    redis_keys[0..100000].each do |key|
+    redis_keys.each do |key|
       source  = REDIS.get key
-      begin
+      #begin
         success = self.create(redis_key: key, source: source)
         REDIS.del key if success
-      rescue => e
-        puts "probably invalid byte sequence"
-      end
+      #rescue => e
+      #  puts "probably invalid byte sequence"
+      #end
     end
+  end
+
+  def mail
+    @mail = Mail.read_from_string(source)
   end
 
   private

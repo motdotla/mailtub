@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'bundler'
 Bundler.setup
 
+require 'active_support' # http://stackoverflow.com/questions/14824179/typeerror-cannot-visit-mailmultibytechars
 Bundler.require(:default, ENV["RACK_ENV"].to_sym)
 
 require 'dotenv'
