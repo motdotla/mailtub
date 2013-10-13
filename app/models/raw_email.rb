@@ -9,7 +9,7 @@ class RawEmail < ActiveRecord::Base
   end
 
   def self.sync!
-    redis_keys[0..100].each do |key|
+    redis_keys[0..10].each do |key|
       source  = REDIS.get key
       success = self.create(redis_key: key, source: source)
       REDIS.del key if success
